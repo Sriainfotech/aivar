@@ -8,7 +8,7 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/cart", "/checkout"],
+        disallow: ["/operations"],
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,

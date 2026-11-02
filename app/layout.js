@@ -1,86 +1,22 @@
-import "./globals.css";
-import { Figtree, Caveat } from "next/font/google";
-import { CartProvider } from "./context/CartContext";
-import { ProductModalProvider } from "./context/ProductModalContext";
-import SiteChrome from "./components/SiteChrome";
-import CartDrawer from "./components/CartDrawer";
-import Toast from "./components/Toast";
-import MobileTabBar from "./components/MobileTabBar";
-import ProductModal from "./components/ProductModal";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
-import AskIvarWidget from "./components/AskIvarWidget";
-import NetworkStatus from "./components/NetworkStatus";
-
-const figtreeDisplay = Figtree({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-script",
-  display: "swap",
-});
-
-const figtree = Figtree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
 export const metadata = {
   metadataBase: new URL("https://ivarlife.com"),
-  title: "Ivar™ — Innovating Indian Food for the World",
+  title: "AIVAR | Food, supply, gifting and packaging",
   description:
-    "Ivar develops, processes and delivers modern food products built from India's ingredients and food traditions.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/assets/favicon-192-v2.png", type: "image/png", sizes: "192x192" },
-      { url: "/assets/favicon-512-v2.png", type: "image/png", sizes: "512x512" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "Ivar™ — Innovating Indian Food for the World",
-    description:
-      "Ivar develops, processes and delivers modern food products built from India's ingredients and food traditions.",
-    siteName: "Ivar",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ivar™ — Innovating Indian Food for the World",
-    description:
-      "Ivar develops, processes and delivers modern food products built from India's ingredients and food traditions.",
-  },
-};
-
-export const viewport = {
-  themeColor: "#173A2B",
+    "AIVAR makes date spreads, makhana and makhana chips, supplies food to corporate, education and government kitchens, and offers corporate food gifting, food packaging and food-industry staffing.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${figtreeDisplay.variable} ${figtree.variable} ${caveat.variable}`}>
-      <body className="bg-ivar-cream text-[#172019] pb-16 md:pb-0">
-        <CartProvider>
-          <ProductModalProvider>
-            <NetworkStatus />
-            <SiteChrome>{children}</SiteChrome>
-            <CartDrawer />
-            <Toast />
-            <MobileTabBar />
-            <ProductModal />
-            <FloatingWhatsApp />
-            <AskIvarWidget />
-          </ProductModalProvider>
-        </CartProvider>
-      </body>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
